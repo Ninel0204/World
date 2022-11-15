@@ -1,12 +1,17 @@
-public class WordsChecker {
-    private String text;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
-    public WordsChecker(String text){
-        this.text=text;
+public class WordsChecker {
+    private final Set<String> worldHet = new HashSet<>();
+
+    public WordsChecker(String text) {
+        Collections.addAll(worldHet, text.split("\\P{IsAlphabetic}+"));
     }
 
-    public boolean hasWord(String Wold){
-        return text.contains(Wold);
+
+    public boolean hasWord(String Wold) {
+        return worldHet.contains(Wold);
 
     }
 }
